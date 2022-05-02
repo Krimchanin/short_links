@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    </br></br></br>
+    <h1>{% block title %} Статистика {% endblock %}</h1>
+    <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">№</th>
+            <th scope="col">Сокращенная ссылка</th>
+            <th scope="col">Оригинальная ссылка</th>
+            <th scope="col">Переходов</th>
+            <th scope="col">Дата создания(г/м/д/в)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for url in urls %}
+                <tr>
+                    <th scope="row">{{ url['id'] }}</th>
+                    <td>{{ url['short_url'] }}</td>
+                    <td>{{ url['original_url'] }}</td>
+                    <td>{{ url['clicks'] }}</td>
+                    <td>{{ url['created'] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

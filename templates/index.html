@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    </br></br></br>
+    <h1>{% block title %} Добро пожаловать!{% endblock %}</h1>
+    <h6>Этот сервис поможет вам сократить ссылку</h6>
+    </br>
+    <form method="post">
+    <div class="form-group">
+        <label for="url">Поле для ввода ссылки</label>
+        <input type="text" name="url"
+               placeholder="vk.com" class="form-control"
+               value="{{ request.form['url'] }}" autofocus></input>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Скоратить</button>
+    </div>
+    </form>
+
+    {% if short_url %}
+    </br></br></br>
+    <hr>
+    <span>Сокращенная ссылка: {{ short_url }}</span>
+    {% endif %}
+
+
+{% endblock %}
